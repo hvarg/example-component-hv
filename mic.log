@@ -79,3 +79,25 @@ mic   _utils.py          INFO     Command: {'name': 'upload', 'command_parameter
 mic   github.py          INFO     Creating the git repository
 mic   github.py          INFO     Compressing code
 mic   github.py          INFO     Creating a new commit
+mic   commands.py        ERROR    Upload failed: 404 {"message": "Not Found", "documentation_url": "https://docs.github.com/rest/reference/repos#create-a-repository-for-the-authenticated-user"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/mic-1.3.6-py3.9.egg/mic/click_encapsulate/commands.py", line 687, in upload
+    push(mic_config_path.parent, mic_config_path, name, profile)
+  File "/usr/local/lib/python3.9/site-packages/mic-1.3.6-py3.9.egg/mic/publisher/github.py", line 35, in push
+    url = check_create_remote_repo(repo, profile, repository_name)
+  File "/usr/local/lib/python3.9/site-packages/mic-1.3.6-py3.9.egg/mic/publisher/github.py", line 126, in check_create_remote_repo
+    repo_github = github_create_repo(profile, model_name)
+  File "/usr/local/lib/python3.9/site-packages/mic-1.3.6-py3.9.egg/mic/publisher/github.py", line 273, in github_create_repo
+    repo = user.create_repo(model_name)
+  File "/usr/local/lib/python3.9/site-packages/PyGithub-1.53-py3.9.egg/github/AuthenticatedUser.py", line 678, in create_repo
+    headers, data = self._requester.requestJsonAndCheck(
+  File "/usr/local/lib/python3.9/site-packages/PyGithub-1.53-py3.9.egg/github/Requester.py", line 317, in requestJsonAndCheck
+    return self.__check(
+  File "/usr/local/lib/python3.9/site-packages/PyGithub-1.53-py3.9.egg/github/Requester.py", line 342, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.UnknownObjectException: 404 {"message": "Not Found", "documentation_url": "https://docs.github.com/rest/reference/repos#create-a-repository-for-the-authenticated-user"}
+mic   _utils.py          INFO     <=================>
+mic   _utils.py          INFO     Command: {'name': 'upload', 'command_parameters': {'mic_file': {'value': '/Users/hvargas/ISI/example/mic/mic.yaml', 'type': 'str'}, 'profile': {'value': 'default', 'type': 'str'}, 'model_configuration': {'value': True, 'type': 'bool'}, 'data_transformation': {'value': None, 'type': 'NoneType'}}}
+mic   github.py          INFO     Creating the git repository
+mic   github.py          INFO     Compressing code
+mic   github.py          INFO     Creating a new commit
