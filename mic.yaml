@@ -1,0 +1,20 @@
+step: 1
+name: example-component-hv
+docker_image: example-component-hv:latest
+framework: !!python/object/apply:mic.constants.Framework
+- !!python/tuple
+  - general
+  - mintproject/generic:latest
+container_name: example-component-hv_308f61ee
+inputs:
+  input_zip:
+    path: input.zip
+    format: zip
+outputs:
+  output_file:
+    path: output
+    format: ''
+code_files:
+  concat_sh:
+    path: concat.sh
+    format: sh
